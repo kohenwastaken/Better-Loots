@@ -1,86 +1,210 @@
 {
-  "type": "minecraft:chest",
-  "pools": [
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
+    "type": "minecraft:chest",
+    "pools": [
         {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:leather"
+            "rolls": 5,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:uniform",
+                                "min": 1,
+                                "max": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:rabbit_hide",
+                    "weight": 3,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:uniform",
+                                "min": 1,
+                                "max": 2
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:leather_chestplate",
-          "weight": 2
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:empty",
+                    "weight": 2
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:saddle",
+                    "weight": 2
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:bundle",
+                    "weight": 1
+                }
+            ]
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:leather_boots",
-          "weight": 2
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:bread",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:uniform",
+                                "min": 3,
+                                "max": 5
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:potato",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:uniform",
+                                "min": 4,
+                                "max": 7
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:leather_helmet",
-          "weight": 2
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:emerald",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:uniform",
+                                "min": 2,
+                                "max": 5
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:bread",
-          "weight": 5
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.3
+            },
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_helmet"
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": {
+                        "type": "minecraft:uniform",
+                        "min": 15,
+                        "max": 25
+                    },
+                    "treasure": true
+                }
+            ]
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:leather_leggings",
-          "weight": 2
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.3
+            },
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_chestplate"
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": {
+                        "type": "minecraft:uniform",
+                        "min": 10,
+                        "max": 25
+                    },
+                    "treasure": true
+                }
+            ]
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:saddle"
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.3
+            },
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_leggings"
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": {
+                        "type": "minecraft:uniform",
+                        "min": 10,
+                        "max": 25
+                    },
+                    "treasure": true
+                }
+            ]
         },
         {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:emerald"
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.3
+            },
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_boots"
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": {
+                        "type": "minecraft:uniform",
+                        "min": 15,
+                        "max": 25
+                    },
+                    "treasure": true
+                }
+            ]
         }
-      ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 5.0,
-        "min": 1.0
-      }
-    }
-  ],
-  "random_sequence": "minecraft:chests/village/village_tannery"
+    ],
+    "random_sequence": "minecraft:chests/village/village_tannery"
 }
