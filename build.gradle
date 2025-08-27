@@ -30,11 +30,6 @@ loom {
 
 }
 
-fabricApi {
-	configureDataGeneration {
-		client = true
-	}
-}
 
 dependencies {
 	// To change the versions see the gradle.properties file
@@ -56,7 +51,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	options.release = 17
 }
 
 java {
@@ -64,6 +59,10 @@ java {
 	// if it is present.
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
+	
+	toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17

@@ -3,27 +3,22 @@
 	"id": "better-loots",
 	"version": "${version}",
 	"name": "Better Loots",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "An overhaul mod for structure loots.",
 	"authors": [
-		"Me!"
+		"kohenwastaken"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/better-loots",
+		"sources": "https://github.com/kohenwastaken/Better-Loots",
+		"issues": "https://github.com/kohenwastaken/Better-Loots/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MPL-2.0",
 	"icon": "assets/better-loots/icon.png",
+
+
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"io.github.kohenwastaken.better_loots.BetterLoots"
-		],
-		"client": [
-			"io.github.kohenwastaken.better_loots.BetterLootsClient"
-		],
-		"fabric-datagen": [
-			"io.github.kohenwastaken.better_loots.BetterLootsDataGenerator"
-		]
+		"main": ["io.github.kohenwastaken.better_loots.BetterLoots"]
 	},
 	"mixins": [
 		"better-loots.mixins.json",
@@ -37,8 +32,5 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }

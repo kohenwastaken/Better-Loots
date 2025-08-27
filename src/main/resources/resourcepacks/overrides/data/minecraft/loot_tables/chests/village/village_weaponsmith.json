@@ -1,0 +1,259 @@
+{
+    "type": "minecraft:chest",
+    "pools": [
+        {
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.33
+            },
+            "entries": [
+                {
+                    "type": "minecraft:alternatives",
+                    "children": [
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:wooden_pickaxe",
+                            "weight": 1
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:stone_pickaxe",
+                            "weight": 12
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:golden_pickaxe",
+                            "weight": 3
+                        }
+                    ],
+                    "functions": []
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:set_enchantments",
+                    "enchantments": {
+                        "minecraft:efficiency": {
+                            "type": "minecraft:uniform",
+                            "min": 1,
+                            "max": 4
+                        }
+                    }
+                },
+                {
+                    "function": "minecraft:set_enchantments",
+                    "conditions": [
+                        {
+                            "condition": "minecraft:random_chance",
+                            "chance": 0.5
+                        }
+                    ],
+                    "enchantments": {
+                        "minecraft:unbreaking": {
+                            "type": "minecraft:uniform",
+                            "min": 1,
+                            "max": 3
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.33
+            },
+            "entries": [
+                {
+                    "type": "minecraft:alternatives",
+                    "children": [
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:wooden_axe",
+                            "weight": 3
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:stone_axe",
+                            "weight": 1
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:wooden_sword",
+                            "weight": 3
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:stone_sword",
+                            "weight": 1
+                        }
+                    ],
+                    "functions": []
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_randomly",
+                    "enchantments": [
+                        "minecraft:sharpness",
+                        "minecraft:smite"
+                    ]
+                },
+                {
+                    "function": "minecraft:enchant_randomly",
+                    "enchantments": [
+                        "minecraft:unbreaking"
+                    ],
+                    "only_compatible": false
+                }
+            ]
+        },
+        {
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.25
+            },
+            "entries": [
+                {
+                    "type": "minecraft:alternatives",
+                    "children": [
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:leather_helmet",
+                            "weight": 3
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:chainmail_helmet",
+                            "weight": 1
+                        }
+                    ],
+                    "functions": []
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": {
+                        "type": "minecraft:uniform",
+                        "min": 15,
+                        "max": 25
+                    },
+                    "treasure": true
+                }
+            ]
+        },
+        {
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.25
+            },
+            "entries": [
+                {
+                    "type": "minecraft:alternatives",
+                    "children": [
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:leather_chestplate",
+                            "weight": 3
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:chainmail_chestplate",
+                            "weight": 1
+                        }
+                    ],
+                    "functions": []
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": {
+                        "type": "minecraft:uniform",
+                        "min": 10,
+                        "max": 25
+                    },
+                    "treasure": true
+                }
+            ]
+        },
+        {
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.25
+            },
+            "entries": [
+                {
+                    "type": "minecraft:alternatives",
+                    "children": [
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:leather_leggings",
+                            "weight": 3
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:chainmail_leggings",
+                            "weight": 1
+                        }
+                    ],
+                    "functions": []
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": {
+                        "type": "minecraft:uniform",
+                        "min": 10,
+                        "max": 25
+                    },
+                    "treasure": true
+                }
+            ]
+        },
+        {
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.25
+            },
+            "entries": [
+                {
+                    "type": "minecraft:alternatives",
+                    "children": [
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:leather_boots",
+                            "weight": 3
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:chainmail_boots",
+                            "weight": 1
+                        }
+                    ],
+                    "functions": []
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": {
+                        "type": "minecraft:uniform",
+                        "min": 15,
+                        "max": 25
+                    },
+                    "treasure": true
+                }
+            ]
+        }
+    ],
+    "random_sequence": "minecraft:chests/village/village_weaponsmith"
+}
