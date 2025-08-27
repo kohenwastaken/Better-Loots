@@ -9,25 +9,19 @@
             },
             "entries": [
                 {
-                    "type": "minecraft:alternatives",
-                    "children": [
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:wooden_pickaxe",
-                            "weight": 1
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:stone_pickaxe",
-                            "weight": 12
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:golden_pickaxe",
-                            "weight": 3
-                        }
-                    ],
-                    "functions": []
+                    "type": "minecraft:item",
+                    "name": "minecraft:wooden_pickaxe",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:stone_pickaxe",
+                    "weight": 12
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:golden_pickaxe",
+                    "weight": 3
                 }
             ],
             "functions": [
@@ -37,7 +31,7 @@
                         "minecraft:efficiency": {
                             "type": "minecraft:uniform",
                             "min": 1,
-                            "max": 4
+                            "max": 3
                         }
                     }
                 },
@@ -46,14 +40,14 @@
                     "conditions": [
                         {
                             "condition": "minecraft:random_chance",
-                            "chance": 0.5
+                            "chance": 0.6
                         }
                     ],
                     "enchantments": {
                         "minecraft:unbreaking": {
                             "type": "minecraft:uniform",
                             "min": 1,
-                            "max": 3
+                            "max": 2
                         }
                     }
                 }
@@ -67,45 +61,34 @@
             },
             "entries": [
                 {
-                    "type": "minecraft:alternatives",
-                    "children": [
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:wooden_axe",
-                            "weight": 3
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:stone_axe",
-                            "weight": 1
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:wooden_sword",
-                            "weight": 3
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:stone_sword",
-                            "weight": 1
-                        }
-                    ],
-                    "functions": []
+                    "type": "minecraft:item",
+                    "name": "minecraft:wooden_axe",
+                    "weight": 3
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:stone_axe",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:wooden_sword",
+                    "weight": 3
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:stone_sword",
+                    "weight": 1
                 }
             ],
             "functions": [
                 {
                     "function": "minecraft:enchant_randomly",
-                    "enchantments": [
-                        "minecraft:sharpness",
-                        "minecraft:smite"
-                    ]
+                    "enchantments": [ "minecraft:sharpness", "minecraft:smite" ]
                 },
                 {
                     "function": "minecraft:enchant_randomly",
-                    "enchantments": [
-                        "minecraft:unbreaking"
-                    ],
+                    "enchantments": [ "minecraft:unbreaking" ],
                     "only_compatible": false
                 }
             ]
@@ -118,20 +101,14 @@
             },
             "entries": [
                 {
-                    "type": "minecraft:alternatives",
-                    "children": [
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:leather_helmet",
-                            "weight": 3
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:chainmail_helmet",
-                            "weight": 1
-                        }
-                    ],
-                    "functions": []
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_helmet",
+                    "weight": 3
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:chainmail_helmet",
+                    "weight": 1
                 }
             ],
             "functions": [
@@ -154,20 +131,14 @@
             },
             "entries": [
                 {
-                    "type": "minecraft:alternatives",
-                    "children": [
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:leather_chestplate",
-                            "weight": 3
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:chainmail_chestplate",
-                            "weight": 1
-                        }
-                    ],
-                    "functions": []
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_chestplate",
+                    "weight": 3
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:chainmail_chestplate",
+                    "weight": 1
                 }
             ],
             "functions": [
@@ -190,20 +161,14 @@
             },
             "entries": [
                 {
-                    "type": "minecraft:alternatives",
-                    "children": [
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:leather_leggings",
-                            "weight": 3
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:chainmail_leggings",
-                            "weight": 1
-                        }
-                    ],
-                    "functions": []
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_leggings",
+                    "weight": 3
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:chainmail_leggings",
+                    "weight": 1
                 }
             ],
             "functions": [
@@ -226,20 +191,14 @@
             },
             "entries": [
                 {
-                    "type": "minecraft:alternatives",
-                    "children": [
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:leather_boots",
-                            "weight": 3
-                        },
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:chainmail_boots",
-                            "weight": 1
-                        }
-                    ],
-                    "functions": []
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_boots",
+                    "weight": 3
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:chainmail_boots",
+                    "weight": 1
                 }
             ],
             "functions": [
