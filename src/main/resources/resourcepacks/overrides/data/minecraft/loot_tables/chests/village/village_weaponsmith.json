@@ -10,11 +10,6 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:wooden_pickaxe",
-                    "weight": 1
-                },
-                {
-                    "type": "minecraft:item",
                     "name": "minecraft:stone_pickaxe",
                     "weight": 12
                 },
@@ -22,6 +17,11 @@
                     "type": "minecraft:item",
                     "name": "minecraft:golden_pickaxe",
                     "weight": 3
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "copperandtuffbackport:copper_pickaxe",
+                    "weight": 30
                 }
             ],
             "functions": [
@@ -62,7 +62,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:wooden_axe",
+                    "name": "copperandtuffbackport:copper_axe",
                     "weight": 3
                 },
                 {
@@ -72,7 +72,7 @@
                 },
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:wooden_sword",
+                    "name": "copperandtuffbackport:copper_sword",
                     "weight": 3
                 },
                 {
@@ -84,12 +84,12 @@
             "functions": [
                 {
                     "function": "minecraft:enchant_randomly",
-                    "enchantments": [ "minecraft:sharpness", "minecraft:smite" ]
+                    "enchantments": [ "minecraft:sharpness", "minecraft:smite" ],
+                    "only_compatible": false
                 },
                 {
                     "function": "minecraft:enchant_randomly",
-                    "enchantments": [ "minecraft:unbreaking" ],
-                    "only_compatible": false
+                    "enchantments": [ "minecraft:unbreaking" ]
                 }
             ]
         },
@@ -102,7 +102,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:leather_helmet",
+                    "name": "copperandtuffbackport:copper_helmet",
                     "weight": 3
                 },
                 {
@@ -132,7 +132,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:leather_chestplate",
+                    "name": "copperandtuffbackport:copper_chestplate",
                     "weight": 3
                 },
                 {
@@ -146,7 +146,7 @@
                     "function": "minecraft:enchant_with_levels",
                     "levels": {
                         "type": "minecraft:uniform",
-                        "min": 10,
+                        "min": 15,
                         "max": 25
                     },
                     "treasure": true
@@ -162,7 +162,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:leather_leggings",
+                    "name": "copperandtuffbackport:copper_leggings",
                     "weight": 3
                 },
                 {
@@ -176,7 +176,7 @@
                     "function": "minecraft:enchant_with_levels",
                     "levels": {
                         "type": "minecraft:uniform",
-                        "min": 10,
+                        "min": 15,
                         "max": 25
                     },
                     "treasure": true
@@ -192,7 +192,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:leather_boots",
+                    "name": "copperandtuffbackport:copper_boots",
                     "weight": 3
                 },
                 {
@@ -214,115 +214,9 @@
             ]
         },
         {
-            "rolls": 1,
-            "entries": [
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:oak_log",
-                    "weight": 4,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:uniform",
-                                "min": 4,
-                                "max": 10
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:cobbled_deepslate",
-                    "weight": 5,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:uniform",
-                                "min": 12,
-                                "max": 20
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:golden_apple",
-                    "weight": 1,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:uniform",
-                                "min": 0,
-                                "max": 1
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "rolls": 1,
-            "entries": [
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:oak_sapling",
-                    "weight": 5,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:uniform",
-                                "min": 2,
-                                "max": 7
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:golden_apple",
-                    "weight": 1
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:apple",
-                    "weight": 3,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:uniform",
-                                "min": 4,
-                                "max": 7
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:bread",
-                    "weight": 3,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:uniform",
-                                "min": 3,
-                                "max": 5
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "rolls": {
-                "type": "minecraft:binomial",
-                "n": 1,
-                "p": 0.5
+                "type": "minecraft:constant",
+                "value": 1
             },
             "entries": [
                 {
