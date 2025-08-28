@@ -19,9 +19,7 @@ public class BetterLoots implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
-		
-		// yerleşik resource pack override
+		// resource pack override
 	    var container = net.fabricmc.loader.api.FabricLoader.getInstance()
 	            .getModContainer(MOD_ID).orElseThrow();
 	    net.fabricmc.fabric.api.resource.ResourceManagerHelper.registerBuiltinResourcePack(

@@ -1,6 +1,7 @@
 {
   "pack": {
     "pack_format": 15,
+	"supported_formats": [18, 26, 41, 48, 57, 61, 71, 80, 81],
     "description": "§6Structure Loot Overhauls"
   }
 }

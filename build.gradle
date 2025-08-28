@@ -19,12 +19,10 @@ repositories {
 }
 
 loom {
-	splitEnvironmentSourceSets()
 
 	mods {
 		"better-loots" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 
