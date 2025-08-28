@@ -2,41 +2,6 @@
     "type": "minecraft:chest",
     "pools": [
         {
-            "rolls": 1,
-            "entries": [
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:bread",
-                    "weight": 1,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:uniform",
-                                "min": 3,
-                                "max": 5
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:potato",
-                    "weight": 1,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:uniform",
-                                "min": 4,
-                                "max": 7
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "rolls": {
                 "type": "minecraft:binomial",
                 "n": 1,
