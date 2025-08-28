@@ -2,27 +2,50 @@
     "type": "minecraft:chest",
     "pools": [
         {
-            "rolls": 1,
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.4
+            },
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:shield"
+                }
+            ]
+        },
+        {
+            "rolls": 3,
             "entries": [
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:copper_ingot",
-                    "weight": 3,
+                    "weight": 2,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:uniform",
-                                "min": 2,
-                                "max": 5
+                                "min": 1,
+                                "max": 4
                             }
                         }
                     ]
                 },
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:shield",
-                    "weight": 1
+                    "name": "minecraft:gold_ingot",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:uniform",
+                                "min": 1,
+                                "max": 4
+                            }
+                        }
+                    ]
                 }
             ]
         },

@@ -2,6 +2,19 @@
     "type": "minecraft:chest",
     "pools": [
         {
+            "rolls": {
+                "type": "minecraft:binomial",
+                "n": 1,
+                "p": 0.7
+            },
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:compass"
+                }
+            ]
+        },
+        {
             "bonus_rolls": 0,
             "entries": [
                 {
@@ -32,11 +45,6 @@
                         }
                     ],
                     "name": "minecraft:paper",
-                    "weight": 1
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:compass",
                     "weight": 1
                 },
                 {
