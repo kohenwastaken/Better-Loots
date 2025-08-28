@@ -81,26 +81,7 @@
                 }
             ]
         },
-        {
-            "rolls": 1,
-            "entries": [
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:emerald",
-                    "weight": 4,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "type": "minecraft:binomial",
-                                "n": 48,
-                                "p": 0.5
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
+
         {
             "rolls": {
                 "type": "minecraft:binomial",
@@ -118,6 +99,26 @@
                                 "type": "minecraft:uniform",
                                 "min": 2,
                                 "max": 5
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:emerald",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:binomial",
+                                "n": 64,
+                                "p": 0.5
                             }
                         }
                     ]
