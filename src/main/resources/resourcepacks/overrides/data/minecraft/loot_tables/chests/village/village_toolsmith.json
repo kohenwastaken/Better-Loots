@@ -5,7 +5,7 @@
             "rolls": {
                 "type": "minecraft:binomial",
                 "n": 1,
-                "p": 0.33
+                "p": 0.4
             },
             "entries": [
                 {
@@ -57,7 +57,7 @@
             "rolls": {
                 "type": "minecraft:binomial",
                 "n": 1,
-                "p": 0.33
+                "p": 0.4
             },
             "entries": [
                 {
@@ -109,7 +109,7 @@
             "rolls": {
                 "type": "minecraft:binomial",
                 "n": 1,
-                "p": 0.33
+                "p": 0.4
             },
             "entries": [
                 {
@@ -160,13 +160,13 @@
         {
             "rolls": {
                 "type": "minecraft:constant",
-                "value": 1
+                "value": 2
             },
             "entries": [
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:coal",
-                    "weight": 10,
+                    "weight": 2,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -181,7 +181,7 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:stick",
-                    "weight": 9,
+                    "weight": 2,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -200,15 +200,20 @@
                 },
                 {
                     "type": "minecraft:item",
+                    "name": "minecraft:minecraft:flint_and_steel",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
                     "name": "minecraft:copper_ingot",
-                    "weight": 15,
+                    "weight": 3,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:uniform",
-                                "min": 3,
-                                "max": 6
+                                "min": 2,
+                                "max": 4
                             }
                         }
                     ]
@@ -216,7 +221,7 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:emerald",
-                    "weight": 15,
+                    "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -231,7 +236,7 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:gold_ingot",
-                    "weight": 10,
+                    "weight": 2,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
