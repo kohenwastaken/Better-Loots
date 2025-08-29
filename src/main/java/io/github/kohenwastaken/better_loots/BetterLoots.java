@@ -20,12 +20,7 @@ import io.github.kohenwastaken.better_loots.mixin.ItemEntryAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-
-
 
 
 public class BetterLoots implements ModInitializer {
@@ -106,7 +101,6 @@ LOGGER.info("[Better-Loots] detected copper items -> pickaxe{}, axe{}, shovel{},
         });
 	}
 	
-	
 	private static Item findFirstByPath(String wantedPath) {
 		
 		for (Item it : Registries.ITEM) {
@@ -122,50 +116,19 @@ LOGGER.info("[Better-Loots] detected copper items -> pickaxe{}, axe{}, shovel{},
 	    }
 	}
 
-	
-	
 	private static String idOf(Item item) {
 	    return item == null ? "none" : Registries.ITEM.getId(item).toString();
 	}
 	
-	private static boolean containsItem(
-	        List<net.minecraft.loot.entry.LootPoolEntry> entries,
-	        net.minecraft.item.Item wanted) {
-	    for (var e : entries) {
-	        if (e instanceof net.minecraft.loot.entry.ItemEntry ie) {
-	            var entryItem = ((ItemEntryAccessor)(Object) ie).betterloots$getItem();
+	private static boolean containsItem(List<LootPoolEntry> entries, Item wanted) {
+	    for (LootPoolEntry e : entries) {
+	        if (e instanceof ItemEntry ie) {
+	            Item entryItem = ((ItemEntryAccessor)(Object) ie).betterloots$getItem();
 	            if (entryItem == wanted) return true;
-
-	        } else if (e instanceof net.minecraft.loot.entry.AlternativeEntry alt) {
-	            var children = childrenOfAlternative(alt); // <-- reflection ile oku
-	            if (containsItem(children, wanted)) return true;
 	        }
-	        // GroupEntry gibi başka birleşik tip görürsen, benzer bir helper yazıp burada çağırabilirsin.
 	    }
 	    return false;
 	}
 
-	private static List<net.minecraft.loot.entry.LootPoolEntry> childrenOfAlternative(
-	        net.minecraft.loot.entry.AlternativeEntry alt
-	) {
-	    try {
-	        for (Field f : net.minecraft.loot.entry.AlternativeEntry.class.getDeclaredFields()) {
-	            if (f.getType().isArray()
-	                    && f.getType().getComponentType() == net.minecraft.loot.entry.LootPoolEntry.class) {
-	                f.setAccessible(true);
-	                var arr = (net.minecraft.loot.entry.LootPoolEntry[]) f.get(alt);
-	                return Arrays.asList(arr);
-	            }
-	        }
-	    } catch (Throwable t) {
-	        LOGGER.warn("[Better-Loots] Failed to read AlternativeEntry children via reflection", t);
-	    }
-	    return Collections.emptyList();
-	}
-
-
-
-	
-	
 	
 }
