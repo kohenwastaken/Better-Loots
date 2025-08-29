@@ -2,9 +2,6 @@ package io.github.kohenwastaken.better_loots;
 
 import net.fabricmc.api.ModInitializer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class BetterLoots implements ModInitializer {
 	public static final String MOD_ID = "better-loots";
 
@@ -26,5 +23,9 @@ public class BetterLoots implements ModInitializer {
 	            new net.minecraft.util.Identifier(MOD_ID, "overrides"),
 	            container,
 	            net.fabricmc.fabric.api.resource.ResourcePackActivationType.ALWAYS_ENABLED);
+	    
+	    
+	    
+	    
 	}
 }
