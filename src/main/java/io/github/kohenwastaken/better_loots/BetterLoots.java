@@ -8,113 +8,164 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.loot.*;
 import net.minecraft.loot.entry.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
+import io.github.kohenwastaken.better_loots.mixin.LootPoolBuilderAccessor;
+import io.github.kohenwastaken.better_loots.mixin.ItemEntryAccessor;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.function.Consumer;
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+
+
 
 public class BetterLoots implements ModInitializer {
-	public static final String MOD_ID = "better-loots";
-	// get mod name as logger name
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final Identifier WEAPONSMITH = new Identifier("minecraft", "chests/village/village_weaponsmith");
-	public static final Identifier TOOLSMITH   = new Identifier("minecraft", "chests/village/village_toolsmith");
+public static final String MOD_ID = "better-loots";
+// get mod name as logger name
+public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+public static final Identifier WEAPONSMITH = new Identifier("minecraft", "chests/village/village_weaponsmith");
+public static final Identifier TOOLSMITH   = new Identifier("minecraft", "chests/village/village_toolsmith");
 	
-	@Override
-	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-
-		// built-in pack register
-	    var container = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow();
-	    ResourceManagerHelper.registerBuiltinResourcePack
-	    (
-	    		new Identifier(MOD_ID, "overrides"),
-	    		container,
-	    		ResourcePackActivationType.ALWAYS_ENABLED
-	    );
+@Override
+public void onInitialize() {
+	// This code runs as soon as Minecraft is in a mod-load-ready state.
+	// However, some things (like resources) may still be uninitialized.
+	
+	// built-in pack register
+	var container = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow();
+	ResourceManagerHelper.registerBuiltinResourcePack
+	(
+	    new Identifier(MOD_ID, "overrides"),
+	    container,
+	    ResourcePackActivationType.ALWAYS_ENABLED
+	);
 	    
-	    final Item copperPickaxe	= findFirstByPath("copper_pickaxe");
-	    final Item copperAxe		= findFirstByPath("copper_axe");
-	    final Item copperShovel		= findFirstByPath("copper_shovel");
-	    final Item copperSword		= findFirstByPath("copper_sword");
-	    final Item copperHelmet		= findFirstByPath("copper_helmet");
-	    final Item copperChestplate	= findFirstByPath("copper_chestplate");
-	    final Item copperLeggings	= findFirstByPath("copper_leggings");
-	    final Item copperBoots		= findFirstByPath("copper_boots");
+	final Item copperPick	 = findFirstByPath("copper_pickaxe");
+	final Item copperAxe	 = findFirstByPath("copper_axe");
+	final Item copperShovel	 = findFirstByPath("copper_shovel");
+	final Item copperSword	 = findFirstByPath("copper_sword");
+	final Item copperHelmet	 = findFirstByPath("copper_helmet");
+	final Item copperCplate	 = findFirstByPath("copper_chestplate");
+	final Item copperLegs	 = findFirstByPath("copper_leggings");
+	final Item copperBoots	 = findFirstByPath("copper_boots");
 	    
 LOGGER.info("[Better-Loots] detected copper items -> pickaxe{}, axe{}, shovel{}, sword{}, helmet{}, chestplate{}, leggings{}, boots{}",
-	    	idOf(copperPickaxe), idOf(copperAxe), idOf(copperShovel), idOf(copperSword),
-	   		idOf(copperHelmet), idOf(copperChestplate), idOf(copperLeggings), idOf(copperBoots)
+	    	idOf(copperPick), idOf(copperAxe), idOf(copperShovel), idOf(copperSword),
+	   		idOf(copperHelmet), idOf(copperCplate), idOf(copperLegs), idOf(copperBoots)
 );
-	    
-	    
-	    if (copperPickaxe == null && 
-	    	copperAxe == null && 
-	    	copperShovel == null && 
-	    	copperSword == null &&
-	    	copperHelmet == null && 
-	    	copperChestplate == null && 
-	    	copperLeggings == null && 
-	    	copperBoots == null) return;
-	    
-	    LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-	    	
-	    	// weaponsmith: 0[emerald], 1[ingots], 2[pickaxe], 3[axe+sword]
-	    	// weaponsmith: 4[helmet], 5[chestplate], 6[leggings], 7[boots]
-	    	if (id.equals(WEAPONSMITH)) {
-                indexModify(tableBuilder, 2, pool -> addIfNotNull(pool, copperPickaxe, 30));
-                indexModify(tableBuilder, 3, pool -> 
-                {
-                    addIfNotNull(pool, copperAxe,   30);
-                    addIfNotNull(pool, copperSword, 30);
-                });
-                indexModify(tableBuilder, 4, pool -> addIfNotNull(pool, copperHelmet, 30));
-                indexModify(tableBuilder, 5, pool -> addIfNotNull(pool, copperChestplate, 30));
-                indexModify(tableBuilder, 6, pool -> addIfNotNull(pool, copperLeggings, 30));
-                indexModify(tableBuilder, 7, pool -> addIfNotNull(pool, copperBoots, 30));
-	    	}
-	    	
-	    	// toolsmith: 0[emerald], 1[ingots], 2[pickaxe], 3[axe], 4[shovel]
-	    	if (id.equals(TOOLSMITH)) {
-                indexModify(tableBuilder, 2, pool -> addIfNotNull(pool, copperPickaxe, 30));
-                indexModify(tableBuilder, 3, pool -> addIfNotNull(pool, copperAxe, 30));
-                indexModify(tableBuilder, 4, pool -> addIfNotNull(pool, copperShovel, 30));
-	    	}
-	    });
+
+
+	if (copperPick == null && copperAxe == null && copperShovel == null && copperSword == null &&
+		copperHelmet == null && copperCplate == null && copperLegs == null && copperBoots == null) return;
+
+	LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+		((FabricLootTableBuilder)(Object) tableBuilder).modifyPools(poolBuilder -> {
+		    var entries = ((LootPoolBuilderAccessor)(Object) poolBuilder).betterloots$getEntries();
+
+			boolean hasStonePick   = containsItem(entries, Items.STONE_PICKAXE);
+			boolean hasStoneAxe    = containsItem(entries, Items.STONE_AXE);
+			boolean hasStoneShovel = containsItem(entries, Items.STONE_SHOVEL);
+			boolean hasStoneSword  = containsItem(entries, Items.STONE_SWORD);
+
+			boolean hasChainHelm   = containsItem(entries, Items.CHAINMAIL_HELMET);
+			boolean hasChainChest  = containsItem(entries, Items.CHAINMAIL_CHESTPLATE);
+			boolean hasChainLegs   = containsItem(entries, Items.CHAINMAIL_LEGGINGS);
+			boolean hasChainBoots  = containsItem(entries, Items.CHAINMAIL_BOOTS);
+
+			if (id.equals(TOOLSMITH)) 
+			{
+				if (hasStonePick)    addIfNotNull(poolBuilder, copperPick, 30);
+				if (hasStoneAxe)   	 addIfNotNull(poolBuilder, copperAxe, 30);
+				if (hasStoneShovel)  addIfNotNull(poolBuilder, copperShovel, 30);
+			}
+			if (id.equals(WEAPONSMITH))
+			{
+				if (hasStonePick) addIfNotNull(poolBuilder, copperPick, 30);
+				if ((hasStoneAxe || hasStoneSword)) 
+				{
+					addIfNotNull(poolBuilder, copperAxe, 30);
+					addIfNotNull(poolBuilder, copperSword, 30);
+				}
+				if (hasChainHelm)  addIfNotNull(poolBuilder, copperHelmet, 30);
+				if (hasChainChest) addIfNotNull(poolBuilder, copperCplate, 30);
+				if (hasChainLegs)  addIfNotNull(poolBuilder, copperLegs, 30);
+				if (hasChainBoots) addIfNotNull(poolBuilder, copperBoots, 30);
+			}
+            });
+        });
 	}
 	
 	
 	private static Item findFirstByPath(String wantedPath) {
 		
-		for (Item item : Registries.ITEM) {
-			var id = Registries.ITEM.getId(item);
-            if (id != null && wantedPath.equals(id.getPath())) return item;
+		for (Item it : Registries.ITEM) {
+			var id = Registries.ITEM.getId(it);
+            if (id != null && wantedPath.equals(id.getPath())) return it;
 		}
 		return null;
 	}
 	
 	private static void addIfNotNull(LootPool.Builder pool, Item item, int weight) {
-        if (item != null) {
-            pool.with(ItemEntry.builder(item).weight(weight).build());
-        }
+	    if (item != null) {
+	        pool.with(ItemEntry.builder(item).weight(weight).build());
+	    }
+	}
+
+	
+	
+	private static String idOf(Item item) {
+	    return item == null ? "none" : Registries.ITEM.getId(item).toString();
 	}
 	
-	 private static void indexModify(LootTable.Builder tableBuilder, int targetIndex,
-			 Consumer<LootPool.Builder> edit) {
-		 final int[] i = {0};
-	        ((FabricLootTableBuilder)(Object) tableBuilder).modifyPools(poolBuilder -> {
-	            if (i[0]++ == targetIndex) edit.accept(poolBuilder);
-	        });
-	 }
+	private static boolean containsItem(
+	        List<net.minecraft.loot.entry.LootPoolEntry> entries,
+	        net.minecraft.item.Item wanted) {
+	    for (var e : entries) {
+	        if (e instanceof net.minecraft.loot.entry.ItemEntry ie) {
+	            var entryItem = ((ItemEntryAccessor)(Object) ie).betterloots$getItem();
+	            if (entryItem == wanted) return true;
+
+	        } else if (e instanceof net.minecraft.loot.entry.AlternativeEntry alt) {
+	            var children = childrenOfAlternative(alt); // <-- reflection ile oku
+	            if (containsItem(children, wanted)) return true;
+	        }
+	        // GroupEntry gibi başka birleşik tip görürsen, benzer bir helper yazıp burada çağırabilirsin.
+	    }
+	    return false;
+	}
+
+	private static List<net.minecraft.loot.entry.LootPoolEntry> childrenOfAlternative(
+	        net.minecraft.loot.entry.AlternativeEntry alt
+	) {
+	    try {
+	        for (Field f : net.minecraft.loot.entry.AlternativeEntry.class.getDeclaredFields()) {
+	            if (f.getType().isArray()
+	                    && f.getType().getComponentType() == net.minecraft.loot.entry.LootPoolEntry.class) {
+	                f.setAccessible(true);
+	                var arr = (net.minecraft.loot.entry.LootPoolEntry[]) f.get(alt);
+	                return Arrays.asList(arr);
+	            }
+	        }
+	    } catch (Throwable t) {
+	        LOGGER.warn("[Better-Loots] Failed to read AlternativeEntry children via reflection", t);
+	    }
+	    return Collections.emptyList();
+	}
+
+
+
 	
-	 private static String idOf(Item item) {
-	        return item == null ? "none" : Registries.ITEM.getId(item).toString();
-	 }
+	
+	
 }

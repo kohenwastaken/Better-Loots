@@ -10,5 +10,5 @@ import java.util.List;
 @Mixin(LootPool.Builder.class)
 public interface LootPoolBuilderAccessor {
     @Accessor("entries")
-    List<LootPoolEntry.Builder<?>> betterloots$getEntries();
+    List<LootPoolEntry> betterloots$getEntries();
 }
